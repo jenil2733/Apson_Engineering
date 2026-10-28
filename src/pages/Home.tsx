@@ -3,6 +3,7 @@ import { HeroSection } from '../components/HeroSection';
 import { CounterNumber } from '../components/CounterNumber';
 import { ContactCTA } from '../components/ContactCTA';
 import { IndustriesWeServe } from '../components/IndustriesWeServe';
+import { HomeProductsSection } from '../components/HomeProductsSection';
 import { RevealOnScroll } from '../components/RevealOnScroll';
 import {
   Clock,
@@ -301,10 +302,13 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* 4. Industries We Serve (Unique Pinterest-style Editorial Gallery) */}
+      {/* 4. Our Products Section (Featuring Machined Components) */}
+      <HomeProductsSection />
+
+      {/* 5. Industries We Serve (Unique Pinterest-style Editorial Gallery) */}
       <IndustriesWeServe />
 
-      {/* 5. Strong Final Conversion Call-to-Action Banner */}
+      {/* 6. Strong Final Conversion Call-to-Action Banner */}
       <ContactCTA />
     </div>
   );

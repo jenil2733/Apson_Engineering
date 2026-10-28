@@ -3,18 +3,25 @@ import { MessageSquare } from 'lucide-react';
 
 interface InquiryFormProps {
   initialMachine?: string;
+  initialProduct?: string;
 }
 
-export const InquiryForm: React.FC<InquiryFormProps> = ({ initialMachine }) => {
+export const InquiryForm: React.FC<InquiryFormProps> = ({ initialMachine, initialProduct }) => {
   const [fullName, setFullName] = useState('');
   const [companyName, setCompanyName] = useState('');
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
   const [service, setService] = useState(
-    initialMachine ? `Machining for ${initialMachine}` : 'CNC Turning & VMC Milling'
+    initialProduct
+      ? `Job Work Inquiry: ${initialProduct}`
+      : initialMachine
+      ? `Machining for ${initialMachine}`
+      : 'CNC Turning & VMC Milling'
   );
   const [quantity, setQuantity] = useState('Batch Production (50–500 pcs)');
-  const [description, setDescription] = useState('');
+  const [description, setDescription] = useState(
+    initialProduct ? `Inquiring about manufacturing: ${initialProduct}. Required quantity, batch timeline, and tolerances:` : ''
+  );
 
   const [errors, setErrors] = useState<Record<string, string>>({});
 

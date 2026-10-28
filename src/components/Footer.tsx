@@ -64,7 +64,15 @@ export const Footer: React.FC = () => {
                   to="/products"
                   className="text-slate-400 hover:text-white transition-colors inline-flex items-center gap-1 group"
                 >
-                  <span className="group-hover:translate-x-0.5 transition-transform">Machine Equipment & Specs</span>
+                  <span className="group-hover:translate-x-0.5 transition-transform">Machined Products</span>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/machines"
+                  className="text-slate-400 hover:text-white transition-colors inline-flex items-center gap-1 group"
+                >
+                  <span className="group-hover:translate-x-0.5 transition-transform">Plant Machines & Specs</span>
                 </Link>
               </li>
               <li>

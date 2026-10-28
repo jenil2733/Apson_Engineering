@@ -80,7 +80,8 @@ export const siteConfig: SiteConfig = {
   ],
   navLinks: [
     { label: 'Home', path: '/' },
-    { label: 'Machines', path: '/products' },
+    { label: 'Products', path: '/products' },
+    { label: 'Machines', path: '/machines' },
     { label: 'About', path: '/about' },
     { label: 'Contact', path: '/contact' },
   ],

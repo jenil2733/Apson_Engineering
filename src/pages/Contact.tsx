@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { Phone, Mail, MessageSquare, ExternalLink, ShieldCheck } from 'lucide-react';
 import { InquiryForm } from '../components/InquiryForm';
 import { FacilityMap } from '../components/FacilityMap';
@@ -6,6 +7,9 @@ import { siteConfig, getWhatsAppQuoteUrl } from '../data/siteConfig';
 import { RevealOnScroll } from '../components/RevealOnScroll';
 
 export const Contact: React.FC = () => {
+  const [searchParams] = useSearchParams();
+  const productParam = searchParams.get('product') || undefined;
+  const machineParam = searchParams.get('machine') || undefined;
 
   return (
     <div className="bg-white min-h-screen">
@@ -40,7 +44,7 @@ export const Contact: React.FC = () => {
       </section>
 
       {/* Main Content: Info & Interactive RFQ Form */}
-      <main className="py-8 sm:py-12 lg:py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 sm:space-y-12">
+      <section aria-label="Contact Information and RFQ Form" className="py-8 sm:py-12 lg:py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 sm:space-y-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10">
           {/* Left Column: Direct Contacts & Registered Address */}
           <RevealOnScroll delay={0} direction="up" className="lg:col-span-5 space-y-6">
@@ -127,10 +131,10 @@ export const Contact: React.FC = () => {
 
           {/* Right Column: Inquiry Form Component */}
           <RevealOnScroll delay={150} direction="up" className="lg:col-span-7">
-            <InquiryForm />
+            <InquiryForm initialProduct={productParam} initialMachine={machineParam} />
           </RevealOnScroll>
         </div>
-      </main>
+      </section>
     </div>
   );
 };

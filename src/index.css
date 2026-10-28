@@ -241,22 +241,32 @@
   transform: scale(1) translate3d(0, 0, 0);
 }
 
-/* Accessibility: Respect User's Reduced Motion Preference */
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.001ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.001ms !important;
-    scroll-behavior: auto !important;
+/* Infinite Right-to-Left Product Slider Keyframes & Classes */
+@keyframes productSliderRightToLeft {
+  0% {
+    transform: translate3d(0, 0, 0);
   }
-
-  .scroll-reveal,
-  .scroll-reveal-scale {
-    opacity: 1 !important;
-    transform: none !important;
-    transition: none !important;
+  100% {
+    transform: translate3d(-50%, 0, 0);
   }
 }
+
+.animate-product-slider {
+  display: flex;
+  width: max-content;
+  animation: productSliderRightToLeft 42s linear infinite;
+  will-change: transform;
+}
+
+.animate-product-slider:hover,
+.animate-product-slider.is-paused {
+  animation-play-state: paused !important;
+}
+
+@media (max-width: 640px) {
+  .animate-product-slider {
+    animation-duration: 32s;
+  }
+}
+
 

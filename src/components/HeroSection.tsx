@@ -321,7 +321,7 @@ export const HeroSection: React.FC = () => {
             </Link>
 
             <Link
-              to="/products"
+              to="/machines"
               className="group inline-flex items-center justify-center gap-2.5 px-6 sm:px-7 py-3.5 sm:py-4 text-sm font-semibold text-white/90 hover:text-white bg-white/10 hover:bg-white/15 active:bg-white/20 border border-white/20 hover:border-white/35 rounded-lg transition-all duration-300 backdrop-blur-sm hover:-translate-y-0.5 text-center"
             >
               <Compass className="w-4 h-4 text-[#B8A04E] transition-transform duration-500 group-hover:rotate-45" />

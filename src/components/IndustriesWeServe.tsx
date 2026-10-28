@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { X, ZoomIn } from 'lucide-react';
+import React from 'react';
 import { RevealOnScroll } from './RevealOnScroll';
 
 interface Industry {
@@ -49,8 +48,6 @@ const industries: Industry[] = [
 ];
 
 export const IndustriesWeServe: React.FC = () => {
-  const [activeImage, setActiveImage] = useState<Industry | null>(null);
-
   return (
     <section className="py-12 sm:py-16 bg-white text-slate-900 relative overflow-hidden border-t border-b border-slate-100">
       {/* Background Architectural Subtle Light Grid */}
@@ -84,15 +81,7 @@ export const IndustriesWeServe: React.FC = () => {
           {industries.map((item, idx) => (
             <RevealOnScroll key={item.id} delay={idx * 60} direction="up">
               <div
-                onClick={() => setActiveImage(item)}
-                role="button"
-                tabIndex={0}
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter' || e.key === ' ') {
-                    setActiveImage(item);
-                  }
-                }}
-                className="group relative cursor-pointer overflow-hidden rounded-xl bg-slate-100 border border-slate-200/90 hover:border-[#7D6C32] transition-all duration-300 shadow-xs hover:shadow-xl hover:-translate-y-1 flex flex-col justify-end h-44 sm:h-52 select-none"
+                className="group relative cursor-default overflow-hidden rounded-xl bg-slate-100 border border-slate-200/90 hover:border-[#7D6C32] transition-all duration-300 shadow-xs hover:shadow-xl hover:-translate-y-1 flex flex-col justify-end h-44 sm:h-52 select-none"
               >
                 {/* Authentic Real Image with Subtle Smooth Zoom */}
                 <img
@@ -111,11 +100,6 @@ export const IndustriesWeServe: React.FC = () => {
                   {item.number}
                 </div>
 
-                {/* Zoom Indicator on Hover */}
-                <div className="absolute top-2.5 right-2.5 w-6 h-6 rounded-full bg-white/90 backdrop-blur-md border border-slate-200/80 flex items-center justify-center text-[#7D6C32] opacity-0 group-hover:opacity-100 transition-opacity duration-200 shadow-2xs">
-                  <ZoomIn className="w-3 h-3 text-[#7D6C32]" />
-                </div>
-
                 {/* Bottom Label: Just Name in an Elegant, Unique Way */}
                 <div className="relative z-10 p-3 text-left">
                   <span className="block text-xs sm:text-sm font-bold text-white leading-tight group-hover:text-[#F3E7BE] transition-colors drop-shadow-sm">
@@ -129,45 +113,6 @@ export const IndustriesWeServe: React.FC = () => {
           ))}
         </div>
       </div>
-
-      {/* Image Lightbox View on Click */}
-      {activeImage && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/90 backdrop-blur-md animate-fadeIn"
-          onClick={() => setActiveImage(null)}
-        >
-          <div
-            className="relative w-full max-w-lg rounded-2xl bg-slate-900 border border-slate-700/80 overflow-hidden shadow-2xl p-0 text-white"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Full Image */}
-            <div className="relative w-full h-72 sm:h-80 bg-slate-950 overflow-hidden">
-              <img
-                src={activeImage.image}
-                alt={activeImage.name}
-                className="w-full h-full object-cover"
-              />
-              <button
-                type="button"
-                onClick={() => setActiveImage(null)}
-                className="absolute top-3 right-3 w-8 h-8 rounded-full bg-slate-950/80 border border-white/20 text-white flex items-center justify-center hover:bg-slate-900 transition-colors"
-                aria-label="Close"
-              >
-                <X className="w-4 h-4" />
-              </button>
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
-              <div className="absolute bottom-4 left-4 right-4">
-                <span className="text-[11px] font-mono text-[#B8A04E] font-bold uppercase tracking-widest block">
-                  Industry {activeImage.number}
-                </span>
-                <h3 className="text-xl sm:text-2xl font-extrabold text-white mt-0.5">
-                  {activeImage.name}
-                </h3>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
     </section>
   );
 };
