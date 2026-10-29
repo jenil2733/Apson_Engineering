@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Phone, ArrowUpRight } from 'lucide-react';
 import { siteConfig } from '../data/siteConfig';
@@ -10,6 +10,7 @@ interface NavbarProps {
 export const Navbar: React.FC<NavbarProps> = ({ transparentOnTop = false }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const headerRef = useRef<HTMLElement>(null);
   const location = useLocation();
 
   useEffect(() => {
@@ -30,6 +31,42 @@ export const Navbar: React.FC<NavbarProps> = ({ transparentOnTop = false }) => {
     setMobileMenuOpen(false);
   }, [location.pathname]);
 
+  // Close mobile menu on click outside header safely (no overlay required)
+  useEffect(() => {
+    if (!mobileMenuOpen) return;
+
+    const handleClickOutside = (event: MouseEvent | TouchEvent) => {
+      const target = event.target as Node | null;
+      if (!target) return;
+      // If the clicked node is no longer connected to the DOM (e.g. unmounted icon), ignore it
+      if (!target.isConnected) return;
+      if (headerRef.current && !headerRef.current.contains(target)) {
+        setMobileMenuOpen(false);
+      }
+    };
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setMobileMenuOpen(false);
+      }
+    };
+
+    // Defer listener attachment so the opening tap/click does not immediately trigger it
+    const timer = setTimeout(() => {
+      document.addEventListener('click', handleClickOutside);
+      document.addEventListener('touchstart', handleClickOutside, { passive: true });
+    }, 0);
+
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      clearTimeout(timer);
+      document.removeEventListener('click', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside);
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [mobileMenuOpen]);
+
   const isHome = location.pathname === '/';
   const shouldBeTransparent = transparentOnTop && isHome && !isScrolled;
   // When at top of page on home, the navbar sits in the dark/blue hero state
@@ -37,20 +74,23 @@ export const Navbar: React.FC<NavbarProps> = ({ transparentOnTop = false }) => {
 
   return (
     <header
+      ref={headerRef}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isDarkNavbar
           ? mobileMenuOpen
-            ? 'bg-slate-950/98 backdrop-blur-xl py-3 border-b border-slate-800 text-white shadow-xl'
+            ? 'bg-slate-950 py-3 sm:py-4 border-b border-white/10 text-white'
             : 'bg-gradient-to-b from-slate-950/90 via-slate-950/50 to-transparent py-3.5 sm:py-4 border-b border-white/10 text-white'
+          : mobileMenuOpen
+          ? 'bg-white py-3 shadow-xs border-b border-slate-200 text-slate-900'
           : 'bg-white/95 backdrop-blur-md py-3 shadow-xs border-b border-slate-200/80 text-slate-900'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between gap-3 sm:gap-8">
-          {/* Zone 1: Brand Logo & Editorial Typography */}
+          {/* Zone 1: Brand Logo */}
           <Link
             to="/"
-            className="flex items-center gap-2.5 sm:gap-3.5 shrink-0 group focus-visible:outline-2 focus-visible:outline-[#7D6C32] rounded-md"
+            className="flex items-center shrink-0 group focus-visible:outline-2 focus-visible:outline-[#7D6C32] rounded-md"
             aria-label="Apson Engineering Home"
           >
             <div className="flex items-center justify-center transition-transform group-hover:scale-105 shrink-0">
@@ -58,29 +98,8 @@ export const Navbar: React.FC<NavbarProps> = ({ transparentOnTop = false }) => {
                 src={siteConfig.logoUrl}
                 alt="Apson Engineering Logo"
                 className="object-contain"
-                style={{ width: '44px', height: '44px' }}
+                style={{ width: '46px', height: '46px' }}
               />
-            </div>
-            <div className="flex flex-col justify-center">
-              <div className="flex items-center gap-1 leading-tight">
-                <span
-                  className={`text-sm xs:text-base sm:text-lg font-extrabold tracking-tight transition-colors ${
-                    isDarkNavbar ? 'text-white' : 'text-slate-900'
-                  }`}
-                >
-                  APSON
-                </span>
-                <span className="text-sm xs:text-base sm:text-lg font-extrabold tracking-tight text-[#B8A04E]">
-                  ENGINEERING
-                </span>
-              </div>
-              <span
-                className={`text-[9px] xs:text-[9.5px] font-mono tracking-wider uppercase leading-none transition-colors truncate max-w-[140px] xs:max-w-none ${
-                  isDarkNavbar ? 'text-slate-400' : 'text-slate-500'
-                }`}
-              >
-                CNC & VMC Job Work
-              </span>
             </div>
           </Link>
 
@@ -149,36 +168,43 @@ export const Navbar: React.FC<NavbarProps> = ({ transparentOnTop = false }) => {
             </Link>
             <button
               type="button"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className={`p-2 rounded-lg focus-visible:outline-2 focus-visible:outline-[#7D6C32] transition-colors border ${
+              onClick={(e) => {
+                e.stopPropagation();
+                setMobileMenuOpen((prev) => !prev);
+              }}
+              className={`w-10 h-10 sm:w-11 sm:h-11 min-w-[40px] min-h-[40px] flex items-center justify-center rounded-lg touch-manipulation cursor-pointer select-none focus-visible:outline-2 focus-visible:outline-[#7D6C32] transition-all border active:scale-95 ${
                 isDarkNavbar
                   ? mobileMenuOpen
-                    ? 'text-white bg-white/15 border-white/25'
-                    : 'text-white hover:bg-white/10 border-white/10'
+                    ? 'text-white bg-white/15 border-white/25 active:bg-white/20'
+                    : 'text-white hover:bg-white/10 active:bg-white/15 border-white/10'
                   : mobileMenuOpen
-                  ? 'text-slate-900 bg-slate-100 border-slate-300'
-                  : 'text-slate-700 hover:bg-slate-100 border-slate-200'
+                  ? 'text-slate-900 bg-slate-100 border-slate-300 active:bg-slate-200'
+                  : 'text-slate-700 hover:bg-slate-100 active:bg-slate-200 border-slate-200'
               }`}
               aria-expanded={mobileMenuOpen}
-              aria-label="Toggle navigation menu"
+              aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
             >
-              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              {mobileMenuOpen ? (
+                <X className="w-5 h-5 pointer-events-none transition-transform duration-200" />
+              ) : (
+                <Menu className="w-5 h-5 pointer-events-none transition-transform duration-200" />
+              )}
             </button>
           </div>
         </div>
       </div>
 
-      {/* Mobile Drawer (Dynamically matched to Dark/Blue or White navbar theme) */}
+      {/* Mobile Drawer (Opens directly below the header bar without any overlay on the navbar) */}
       {mobileMenuOpen && (
         <div
-          className={`md:hidden px-4 pt-3 pb-6 shadow-2xl animate-in fade-in slide-in-from-top-2 duration-200 max-h-[calc(100vh-4.5rem)] overflow-y-auto ${
+          className={`absolute top-full left-0 right-0 w-full md:hidden px-4 pt-3 pb-6 animate-in fade-in slide-in-from-top-2 duration-200 max-h-[calc(100vh-4.5rem)] overflow-y-auto ${
             isDarkNavbar
-              ? 'bg-slate-950/98 backdrop-blur-2xl text-white border-b border-slate-800/90 shadow-black/80'
-              : 'bg-white/98 backdrop-blur-2xl text-slate-900 border-b border-slate-200 shadow-slate-900/10'
+              ? 'bg-slate-950 text-white border-b border-white/10 shadow-2xl shadow-black/80'
+              : 'bg-white text-slate-900 border-b border-slate-200 shadow-xl shadow-slate-900/10'
           }`}
         >
           <div className="flex flex-col space-y-2">
-            {siteConfig.navLinks.map((link, idx) => {
+            {siteConfig.navLinks.map((link) => {
               const isActive = location.pathname === link.path;
               return (
                 <Link
@@ -208,15 +234,6 @@ export const Navbar: React.FC<NavbarProps> = ({ transparentOnTop = false }) => {
                     />
                     <span>{link.label}</span>
                   </span>
-                  <span
-                    className={`font-mono text-xs ${
-                      isDarkNavbar
-                        ? 'text-slate-400 group-hover:text-slate-200'
-                        : 'text-slate-400 group-hover:text-slate-600'
-                    }`}
-                  >
-                    [0{idx + 1}]
-                  </span>
                 </Link>
               );
             })}
@@ -224,14 +241,14 @@ export const Navbar: React.FC<NavbarProps> = ({ transparentOnTop = false }) => {
             {/* Quick Actions in Mobile Drawer */}
             <div
               className={`pt-4 mt-2 border-t flex flex-col gap-2.5 ${
-                isDarkNavbar ? 'border-slate-800/80' : 'border-slate-100'
+                isDarkNavbar ? 'border-white/10' : 'border-slate-200/60'
               }`}
             >
               <a
                 href={`tel:${siteConfig.phoneRaw}`}
                 className={`flex items-center justify-between px-4 py-3 rounded-xl text-xs font-semibold transition-colors border ${
                   isDarkNavbar
-                    ? 'text-slate-200 bg-slate-900/90 hover:bg-slate-800/90 border-slate-800 active:bg-slate-800'
+                    ? 'text-white/90 bg-white/5 hover:bg-white/10 border-white/10 active:bg-white/10'
                     : 'text-slate-800 bg-slate-50 hover:bg-slate-100 border-slate-200/80 active:bg-slate-100'
                 }`}
               >

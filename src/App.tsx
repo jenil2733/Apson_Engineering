@@ -4,7 +4,7 @@
  */
 
 import React, { useEffect } from 'react';
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { MemoryRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { Home } from './pages/Home';
@@ -28,7 +28,7 @@ function ScrollToTop() {
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <MemoryRouter initialEntries={['/']}>
       <ScrollToTop />
       <div className="flex flex-col min-h-screen bg-white text-slate-900 selection:bg-[#7D6C32]/20 selection:text-[#7D6C32]">
         <Navbar transparentOnTop={true} />
@@ -46,6 +46,6 @@ export default function App() {
         <Footer />
         <FloatingWhatsApp />
       </div>
-    </BrowserRouter>
+    </MemoryRouter>
   );
 }

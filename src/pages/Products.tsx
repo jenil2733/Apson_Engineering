@@ -82,6 +82,36 @@ export const Products: React.FC = () => {
           {productsData.map((product, idx) => {
             const firstPhoto = product.images[0];
 
+            const rawMachining = product.specifications.find(s => 
+              s.label.toLowerCase().includes('machining') || s.label.toLowerCase().includes('operation')
+            )?.value || product.specifications[1]?.value || 'CNC & 4-Axis VMC';
+
+            const machiningVal = rawMachining
+              .replace(/CNC Turning & 4-Axis VMC Milling/i, 'CNC Turning & 4-Axis VMC')
+              .replace(/4-Axis VMC 3D Milling & Precision CNC Turning/i, '4-Axis VMC & CNC Turning')
+              .replace(/4-Axis VMC Milling, CNC Turning & Single-Point Threading/i, '4-Axis VMC & CNC Turning')
+              .replace(/CNC Lathe Face Turning & 4-Axis VMC Milling/i, 'CNC Turning & 4-Axis VMC')
+              .replace(/CNC Lathe Face & OD Turning, Keyway Broaching/i, 'CNC Turning & Broaching');
+
+            const rawMaterial = product.specifications.find(s => 
+              s.label.toLowerCase().includes('material')
+            )?.value || 'Forged / Cast Steel';
+
+            const materialVal = rawMaterial
+              .replace(/High-Grade Cast Iron \/ Ductile Iron Casting/i, 'Cast Iron / Ductile Iron')
+              .replace(/Forged Steel \/ Carbon Steel \/ Ductile Iron/i, 'Forged / Carbon Steel')
+              .replace(/Alloy Steel \/ Stainless Steel \/ EN8D Bar Stock/i, 'Alloy / Stainless Steel')
+              .replace(/Aerospace Aluminum \/ High-Grade Stainless Steel/i, 'Aerospace Aluminum / SS')
+              .replace(/High-Grade Ductile Iron \/ Cast Steel Casting/i, 'Ductile Iron / Cast Steel')
+              .replace(/High-Tensile Cast Iron \/ Bronze \/ SS Casting/i, 'Cast Iron / Bronze / SS');
+
+            const rawTolerance = product.specifications.find(s => 
+              s.label.toLowerCase().includes('tolerance')
+            )?.value || '±0.015 mm';
+
+            const toleranceMatch = rawTolerance.match(/±[\d.]+\s*(?:mm|µm)?/i);
+            const toleranceVal = toleranceMatch ? toleranceMatch[0] : rawTolerance.split(/[/on]/)[0].trim();
+
             return (
               <RevealOnScroll key={product.id} delay={idx * 100} direction="up">
                 <div className="group rounded-2xl bg-white border border-slate-200 hover:border-[#7D6C32]/70 shadow-xs hover:shadow-xl hover:shadow-slate-200/60 transition-all duration-300 flex flex-col overflow-hidden h-full hover:-translate-y-1">
@@ -115,21 +145,23 @@ export const Products: React.FC = () => {
                       </p>
 
                       {/* Technical Specs Summary */}
-                      <div className="pt-4 border-t border-slate-100 space-y-2.5 mb-6 text-xs text-slate-600">
-                        <div className="flex items-center justify-between">
-                          <span className="font-medium text-slate-500">Machining:</span>
-                          <span className="font-semibold text-slate-800">{product.specifications[1]?.value || 'CNC & VMC'}</span>
-                        </div>
-                        <div className="flex items-center justify-between">
-                          <span className="font-medium text-slate-500">Material:</span>
-                          <span className="font-semibold text-slate-800">
-                            {product.specifications.find(s => s.label.toLowerCase().includes('material'))?.value || 'Forged / Cast Steel'}
+                      <div className="pt-4 border-t border-slate-100 space-y-2 mb-6 text-xs text-slate-600">
+                        <div className="flex items-center justify-between gap-3">
+                          <span className="font-medium text-slate-500 shrink-0">Machining:</span>
+                          <span className="font-semibold text-slate-800 text-right truncate" title={machiningVal}>
+                            {machiningVal}
                           </span>
                         </div>
-                        <div className="flex items-center justify-between">
-                          <span className="font-medium text-slate-500">Tolerance:</span>
-                          <span className="font-mono font-semibold text-slate-900">
-                            {product.specifications.find(s => s.label.toLowerCase().includes('tolerance'))?.value || '±0.015 mm'}
+                        <div className="flex items-center justify-between gap-3">
+                          <span className="font-medium text-slate-500 shrink-0">Material:</span>
+                          <span className="font-semibold text-slate-800 text-right truncate" title={materialVal}>
+                            {materialVal}
+                          </span>
+                        </div>
+                        <div className="flex items-center justify-between gap-3">
+                          <span className="font-medium text-slate-500 shrink-0">Tolerance:</span>
+                          <span className="font-mono font-semibold text-slate-900 text-right shrink-0 tabular-nums" title={toleranceVal}>
+                            {toleranceVal}
                           </span>
                         </div>
                       </div>

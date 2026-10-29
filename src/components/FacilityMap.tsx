@@ -4,7 +4,7 @@ import { siteConfig } from '../data/siteConfig';
 
 export const FacilityMap: React.FC = () => {
   // Google Map embed pinned directly at Apson Engineering, Shapar, Rajkot
-  const mapEmbedUrl = `https://maps.google.com/maps?q=Apson+Engineering,+Plot+No.+3,+R.S.+No.+348%2F2,+Opp.+Kishan+Farm,+Shapar,+Rajkot,+Gujarat+360026&t=m&z=16&ie=UTF8&iwloc=A&output=embed`;
+  const mapEmbedUrl = `https://maps.google.com/maps?q=Apson+Engineering,+Shapar,+Rajkot,+Gujarat&t=m&z=15&output=embed`;
 
   return (
     <div className="w-full bg-white rounded-lg border border-slate-200 shadow-2xs overflow-hidden">
@@ -26,21 +26,27 @@ export const FacilityMap: React.FC = () => {
 
       {/* Map Viewport with Location Identifier */}
       <div className="relative w-full h-[360px] bg-slate-100">
-        {/* Sleek Location Identifier Pill */}
-        <div className="absolute top-3.5 left-3.5 bg-white/95 backdrop-blur-xs px-3 py-1.5 rounded-full border border-slate-200/90 shadow-sm flex items-center gap-2 z-10 pointer-events-none">
-          <span className="w-2 h-2 rounded-full bg-red-600 animate-pulse" />
-          <span className="font-bold text-slate-900 text-xs tracking-tight">
-            Apson Engineering
+        {/* Prominent Location Identifier Badge */}
+        <div className="absolute top-3.5 left-3.5 bg-white/95 backdrop-blur-xs px-3.5 py-2 rounded-lg border border-slate-200/90 shadow-md flex items-center gap-2.5 z-10 pointer-events-none">
+          <span className="relative flex h-2.5 w-2.5">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75" />
+            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-red-600" />
           </span>
-          <span className="text-slate-300 text-xs">·</span>
-          <span className="text-[11px] text-slate-600 font-medium">Shapar, Rajkot</span>
+          <div className="flex flex-col text-left">
+            <span className="font-bold text-slate-900 text-xs tracking-tight leading-tight">
+              Apson Engineering
+            </span>
+            <span className="text-[10.5px] text-slate-600 font-medium">
+              Plot No. 3, Shapar, Rajkot
+            </span>
+          </div>
         </div>
 
         <iframe
           title="Apson Engineering Location Map"
           src={mapEmbedUrl}
           className="w-full h-full border-0"
-          loading="lazy"
+          loading="eager"
           allowFullScreen
           referrerPolicy="no-referrer-when-downgrade"
         />

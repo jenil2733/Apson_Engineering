@@ -47,7 +47,7 @@ export const Contact: React.FC = () => {
       <section aria-label="Contact Information and RFQ Form" className="py-8 sm:py-12 lg:py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 sm:space-y-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10">
           {/* Left Column: Direct Contacts & Registered Address */}
-          <RevealOnScroll delay={0} direction="up" className="lg:col-span-5 space-y-6">
+          <RevealOnScroll delay={0} direction="none" className="lg:col-span-5 space-y-6">
             {/* Quick Actions Card */}
             <div className="p-4 sm:p-6 rounded-lg bg-slate-50 border border-slate-200">
               <h2 className="text-sm font-bold uppercase tracking-wider text-slate-900 mb-4">

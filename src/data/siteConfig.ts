@@ -56,7 +56,7 @@ export const siteConfig: SiteConfig = {
       'Plot No. 3, R.S. No. 348/2, Near Luminous Technocast Pvt. Ltd., Opp. Kishan Farm, Shapar, Rajkot, Gujarat – 360026, India',
   },
   googleMapsUrl:
-    'https://www.google.com/maps/search/?api=1&query=Plot+No.+3+R.S.+No.+348%2F2+Near+Luminous+Technocast+Pvt+Ltd+Opp+Kishan+Farm+Shapar+Rajkot+Gujarat+360026',
+    'https://www.google.com/maps/search/?api=1&query=Apson+Engineering+Shapar+Rajkot+Gujarat',
   brandColor: '#7D6C32',
   logoUrl: '/assets/aistudio/Apson_Logo_b2c10379.svg',
   heroVideoUrl: '/assets/aistudio/hero_video_hd.mp4',
