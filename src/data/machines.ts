@@ -46,8 +46,8 @@ export const machinesData: Machine[] = [
       'Engineered for precision prismatic components, featuring 800 mm X-travel and a 200 mm 4th-axis rotary table for complex angular operations.',
     fullDescription:
       'The ACE Micromatic 850V is a cornerstone of our milling line, offering rigid structure and dependable repeatability for both batch manufacturing and precision custom manufacturing. Outfitted with a dedicated 200 mm diameter rotary table, it supports 4-axis synchronized positioning for multi-sided components without refixturing.',
-    image: '/assets/mach_vmc_850.jpg',
-    imageCaption: 'Vertical Machining Center (VMC) with multi-tool magazine',
+    image: '/assets/aistudio/850V-min_39026ea2.webp',
+    imageCaption: 'ACE Micromatic 850V Vertical Machining Center',
     badge: '4-Axis Configured',
     isFourAxisCapable: true,
     specifications: [
@@ -88,8 +88,8 @@ export const machinesData: Machine[] = [
       'Features an expansive 1000 × 600 mm working envelope with 24-pocket tool magazine and heavy-duty 250 mm 4th-axis rotary indexer.',
     fullDescription:
       'The KTM 10060 provides large-envelope machining capacity at Apson Engineering. Its generous 1000 mm X-axis and 600 mm Y/Z travel accommodate oversized fixtures, long shafts, and bulky casting components requiring multi-surface precision milling.',
-    image: '/assets/mach_ktm_10060.jpg',
-    imageCaption: 'Extended envelope VMC with 4th-axis rotary indexer table',
+    image: '/assets/aistudio/ktm-10060-cutout.png',
+    imageCaption: 'KTM 10060 Vertical Machining Center',
     badge: 'Large Envelope & 4th Axis',
     isFourAxisCapable: true,
     specifications: [
@@ -128,8 +128,8 @@ export const machinesData: Machine[] = [
       'Equipped with Fanuc CNC control, 200 mm hydraulic chuck, 8-station tool turret, and 643 mm turning length capacity.',
     fullDescription:
       'The ACE Micromatic SJE 10LM delivers consistent cylindrical accuracy, superior surface finish, and tight diameter control. Built for shafts, pins, bushings, and turned fittings, its 8-station turret allows rapid sequential operations from rough turning to fine threading.',
-    image: '/assets/mach_ace_sje_10lm.jpg',
-    imageCaption: 'CNC Horizontal Turning Center with 8-station tool turret',
+    image: '/assets/aistudio/sje-10lm-cutout.png',
+    imageCaption: 'ACE Micromatic SJE 10LM CNC Turning Center',
     badge: 'High Precision Turning',
     isFourAxisCapable: false,
     specifications: [
@@ -158,28 +158,28 @@ export const machinesData: Machine[] = [
   },
   {
     id: 'jyoti-vmc',
-    name: 'Jyoti CNC VMC',
+    name: 'Jyoti RX 20 VMC',
     manufacturer: 'Jyoti CNC Automation',
-    model: 'VMC Line (Model verification in progress)',
+    model: 'RX 20',
     category: 'VMC',
     categoryKey: 'vmc',
-    tagline: 'High-accuracy vertical machining center for dynamic milling and contouring',
+    tagline: 'High-speed vertical machining center engineered for precision milling and contouring',
     shortDescription:
-      'Modern vertical machining system from Jyoti CNC Automation running Siemens control with high-precision linear guideways.',
+      'High-performance vertical machining center from Jyoti CNC Automation equipped with rapid tool changer and precision linear guideways.',
     fullDescription:
-      'Manufactured by Jyoti CNC Automation, this vertical machining center operates alongside our primary VMC line. Configured with a Siemens CNC controller and automatic tool changer, it handles customer manufacturing requiring high-accuracy milling, slotting, and thread milling.',
-    image: '/assets/mach_jyoti_vmc.jpg',
-    imageCaption: 'High-precision Vertical Machining Center for contouring and milling',
+      'The Jyoti RX 20 is engineered for high-accuracy vertical milling, slotting, contouring, and thread milling. Featuring rigid construction and Siemens CNC control, it handles batch and specialized custom manufacturing with tight geometric tolerances.',
+    image: '/assets/aistudio/rx-20-1_dae2bb9c.webp',
+    imageCaption: 'Jyoti RX 20 High-Speed Vertical Machining Center',
     badge: 'VMC Milling',
     isFourAxisCapable: false,
     specifications: [
       { label: 'Manufacturer', value: 'Jyoti CNC Automation', status: 'confirmed' },
-      { label: 'Machine Type', value: 'Vertical Machining Center (VMC)', status: 'confirmed' },
+      { label: 'Model', value: 'RX 20', status: 'confirmed' },
+      { label: 'Machine Type', value: 'High-Speed Vertical Machining Center', status: 'confirmed' },
       { label: 'CNC Controller', value: 'Siemens CNC', status: 'confirmed' },
-      { label: 'Tool Magazine', value: '22 Tools (approx.)', status: 'tbc', note: 'Subject to final workshop confirmation' },
-      { label: 'Axis Travel (X/Y/Z)', value: 'To be confirmed', status: 'tbc', note: 'Specific model plate verification in progress' },
-      { label: 'Spindle RPM & Taper', value: 'To be confirmed', status: 'tbc', note: 'Awaiting nameplate confirmation' },
-      { label: 'Table Load Capacity', value: 'To be confirmed', status: 'tbc', note: 'Subject to model verification' },
+      { label: 'Tool Magazine', value: '20–24 Tools', status: 'tbc', note: 'Subject to final workshop confirmation' },
+      { label: 'Axis Travel (X/Y/Z)', value: 'To be confirmed', status: 'tbc', note: 'Model plate verification in progress' },
+      { label: 'Spindle Speed', value: 'To be confirmed', status: 'tbc', note: 'Awaiting nameplate confirmation' },
     ],
     supportedOperations: [
       'High-Speed Milling',
@@ -206,8 +206,8 @@ export const machinesData: Machine[] = [
       'Features 8-station tool turret, approx. 500 mm turning length, and Siemens SINUMERIK control for high-accuracy turned components.',
     fullDescription:
       'The Jyoti DX 200 5D Turning Center combines structural rigidity with ergonomic accessibility for medium and high-volume turned parts. Ideal for turned shafts, bushes, pulleys, and precision flanges made from carbon steel, alloy steel, cast iron, and non-ferrous metals.',
-    image: '/assets/mach_jyoti_dx200.jpg',
-    imageCaption: 'Heavy-duty CNC slant bed turning lathe with hydraulic chuck',
+    image: '/assets/aistudio/extra-12000984_81a23b36.png',
+    imageCaption: 'Jyoti DX 200 CNC Turning Center',
     badge: 'Turning Center',
     isFourAxisCapable: false,
     specifications: [

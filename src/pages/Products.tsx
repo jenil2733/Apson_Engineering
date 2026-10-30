@@ -68,7 +68,7 @@ export const Products: React.FC = () => {
           <div className="flex items-center justify-between pb-6 mb-8 border-b border-slate-200">
             <div>
               <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-slate-900">
-                All Products ({productsData.length})
+                All Products
               </h2>
               <p className="text-xs sm:text-sm text-slate-500 mt-1">
                 Click any product to inspect detailed photo angles, material specifications, and machining operations.
@@ -103,7 +103,8 @@ export const Products: React.FC = () => {
               .replace(/Alloy Steel \/ Stainless Steel \/ EN8D Bar Stock/i, 'Alloy / Stainless Steel')
               .replace(/Aerospace Aluminum \/ High-Grade Stainless Steel/i, 'Aerospace Aluminum / SS')
               .replace(/High-Grade Ductile Iron \/ Cast Steel Casting/i, 'Ductile Iron / Cast Steel')
-              .replace(/High-Tensile Cast Iron \/ Bronze \/ SS Casting/i, 'Cast Iron / Bronze / SS');
+              .replace(/High-Tensile Cast Iron \/ Bronze \/ SS Casting/i, 'Cast Iron / Bronze / SS')
+              .replace(/CF8 Stainless Steel \/ Cast SS304/i, 'CF8 Stainless Steel');
 
             const rawTolerance = product.specifications.find(s => 
               s.label.toLowerCase().includes('tolerance')

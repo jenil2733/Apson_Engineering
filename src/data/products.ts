@@ -396,6 +396,63 @@ export const productsData: Product[] = [
       },
     ],
   },
+  {
+    id: 'valve',
+    slug: 'valve',
+    name: 'Valve',
+    category: 'Industrial Valves & Flow Control',
+    shortDescription:
+      'Precision-engineered 40mm (1-1/2") CF8 stainless steel industrial ball valve with CNC-threaded hexagonal ends, full-bore flow, and manual lever handle.',
+    fullDescription:
+      'The Valve is an industrial quarter-turn 40mm CF8 (AISI 304 cast stainless steel) ball valve precision-machined for demanding flow-control applications. Engineered with tight CNC turning and 4-axis VMC milling, this valve features female threaded hexagonal connection ends, precision-bored spherical seat cavity, anti-blowout stem assembly, and a heavy-duty stainless steel manual lever handle. Built strictly to customer blueprints and industrial pressure ratings, it delivers bubble-tight shutoff, corrosion resistance, and low operating torque for chemical processing, water infrastructure, oil & gas, and industrial fluid systems.',
+    images: [
+      {
+        url: '/assets/aistudio/WhatsApp_Image_2026-10-29_at_10.05.41_79cfc6a4.jpeg',
+        alt: 'Valve - 40mm CF8 Stainless Steel Ball Valve with Manual Lever Handle Full View',
+        caption: '40mm CF8 Stainless Steel Ball Valve Profile with Lever Handle',
+      },
+      {
+        url: '/assets/aistudio/WhatsApp_Image_2026-10-29_at_10.05.42_1d75b8bb.jpeg',
+        alt: 'Valve - 40mm CF8 Valve Body Close-Up showing 40MM CF8 Casting Mark & Hex End',
+        caption: 'Body Detail - 40MM CF8 Casting Mark & Hexagonal Threaded End',
+      },
+    ],
+    specifications: [
+      { label: 'Material Grade', value: 'CF8 Stainless Steel / Cast SS304' },
+      { label: 'Nominal Bore / Size', value: '40 mm (1-1/2" DN40 Full Bore)' },
+      { label: 'Machining Operations', value: 'CNC Turning & 4-Axis VMC Milling' },
+      { label: 'Primary Application', value: 'Chemical, Water Systems, Petrochemical & Fluid Control' },
+      { label: 'Tolerance Fidelity', value: '±0.015 mm / As per Customer Blueprint' },
+      { label: 'Pressure Rating', value: '1000 WOG (PN63 / Class 150)' },
+      { label: 'End Connection Type', value: 'Female BSP / NPT Threaded Ends with Hex Body' },
+      { label: 'Surface Finish', value: 'Ra 0.8 µm on critical sealing and stem faces' },
+      { label: 'Inspection Protocol', value: '100% Hydrostatic Shell & Pneumatic Seat Leak Testing' },
+    ],
+    keyFeatures: [
+      'Investment cast CF8 (304 stainless steel) body offering superior corrosion resistance across aggressive fluids',
+      'Full bore 40mm internal flow passage preventing fluid turbulence and pressure drops',
+      'Precision single-point CNC turned threaded ends with hexagonal flats for secure wrenching',
+      'Blow-out proof operating stem with lockable heavy-duty lever handle for reliable manual operation',
+      '100% manufactured strictly to customer drawings, standard pipe threads, and pressure ratings',
+    ],
+    machiningHighlights: [
+      {
+        title: 'CNC Hexagonal Body & Thread Turning',
+        description:
+          'Single-setup turning of hexagonal outer profiles and single-point internal threading ensuring concentricity and tight pitch tolerance.',
+      },
+      {
+        title: 'Internal Chamber & Ball Seat Boring',
+        description:
+          'Precision CNC boring of the spherical ball chamber and PTFE seat retaining grooves for leak-proof sealing under full line pressure.',
+      },
+      {
+        title: '4-Axis VMC Stem Passage Machining',
+        description:
+          'Accurate milling of the stem passage, gland packing collar, and 90-degree handle rotation stops.',
+      },
+    ],
+  },
 ];
 
 export function getProductBySlug(slug: string): Product | undefined {

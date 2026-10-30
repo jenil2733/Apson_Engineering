@@ -138,7 +138,11 @@ export const ProductDetail: React.FC = () => {
               {/* Clickable Thumbnails Row */}
               <div
                 className={`grid gap-3 sm:gap-4 ${
-                  product.images.length === 4 ? 'grid-cols-4' : 'grid-cols-3'
+                  product.images.length === 4
+                    ? 'grid-cols-4'
+                    : product.images.length === 2
+                    ? 'grid-cols-2 max-w-md'
+                    : 'grid-cols-3'
                 }`}
               >
                 {product.images.map((img, idx) => {
