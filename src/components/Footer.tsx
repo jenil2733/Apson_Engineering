@@ -31,7 +31,7 @@ export const Footer: React.FC = () => {
             </div>
 
             <p className="text-sm text-slate-400 leading-relaxed max-w-md pt-1">
-              Apson Engineering is a precision machining job-work facility in Shapar, Rajkot, Gujarat.
+              Apson Engineering is a precision machining and manufacturing facility in Shapar, Rajkot, Gujarat.
               Specializing in customer-specific CNC turning, 4-axis VMC milling, and precision component
               manufacturing strictly to customer blueprints and CAD models.
             </p>
@@ -144,7 +144,7 @@ export const Footer: React.FC = () => {
                 to="/contact"
                 className="inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold text-white bg-[#7D6C32] hover:bg-[#917d3b] rounded-md transition-all shadow-xs"
               >
-                <span>Submit Job Work RFQ</span>
+                <span>Submit Manufacturing RFQ</span>
                 <ArrowUpRight className="w-3.5 h-3.5" />
               </Link>
             </div>
@@ -155,7 +155,7 @@ export const Footer: React.FC = () => {
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
           <p>© {currentYear} {siteConfig.legalTradeName}. All rights reserved.</p>
           <p className="text-slate-400 text-center sm:text-right">
-            Precision CNC Turning & VMC Machining Job Work · Shapar, Rajkot, Gujarat, India
+            Precision CNC Turning & VMC Machining · Drawing & Sample Based Manufacturing · Shapar, Rajkot, Gujarat, India
           </p>
         </div>
       </div>

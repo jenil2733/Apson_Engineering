@@ -13,7 +13,7 @@ export const InquiryForm: React.FC<InquiryFormProps> = ({ initialMachine, initia
   const [email, setEmail] = useState('');
   const [service, setService] = useState(
     initialProduct
-      ? `Job Work Inquiry: ${initialProduct}`
+      ? `Manufacturing Inquiry: ${initialProduct}`
       : initialMachine
       ? `Machining for ${initialMachine}`
       : 'CNC Turning & VMC Milling'
@@ -165,7 +165,7 @@ export const InquiryForm: React.FC<InquiryFormProps> = ({ initialMachine, initia
               <option value="CNC Turning & VMC Milling">CNC Turning & VMC Milling</option>
               <option value="4-Axis VMC Machining (ACE 850V / KTM 10060)">4-Axis VMC Machining (ACE 850V / KTM 10060)</option>
               <option value="CNC Turning Centers (ACE SJE 10LM / Jyoti DX 200)">CNC Turning Centers (ACE SJE 10LM / Jyoti DX 200)</option>
-              <option value="Vertical Machining Center Job Work (Jyoti VMC)">Vertical Machining Center Job Work (Jyoti VMC)</option>
+              <option value="Vertical Machining Center Manufacturing (Jyoti VMC)">Vertical Machining Center Manufacturing (Jyoti VMC)</option>
               <option value="Custom Engineering Component to Drawing">Custom Engineering Component to Drawing</option>
             </select>
           </div>

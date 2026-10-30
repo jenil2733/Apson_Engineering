@@ -37,7 +37,7 @@ export const Contact: React.FC = () => {
 
             <p className="text-sm sm:text-base lg:text-lg text-slate-300 leading-relaxed max-w-2xl">
               Connect with Apson Engineering for quotes on CNC turning, VMC milling, and precision
-              job work. Send your engineering drawings or schedule a visit to our Shapar facility.
+              manufacturing. Send your engineering drawings or schedule a visit to our Shapar facility.
             </p>
           </div>
         </div>

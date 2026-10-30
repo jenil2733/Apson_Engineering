@@ -89,7 +89,7 @@ export const HeroSection: React.FC = () => {
               transition: 'transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.7s ease',
             }}
             className={`absolute inset-0 w-full h-full object-cover object-center ${
-              videoLoaded ? 'opacity-85' : 'opacity-0'
+              videoLoaded ? 'opacity-95' : 'opacity-0'
             }`}
           />
         )}
@@ -97,14 +97,14 @@ export const HeroSection: React.FC = () => {
         {/* Fallback Static HD Poster */}
         <div
           className={`absolute inset-0 bg-cover bg-center transition-opacity duration-700 ${
-            videoLoaded && !videoError ? 'opacity-0 pointer-events-none' : 'opacity-80'
+            videoLoaded && !videoError ? 'opacity-0 pointer-events-none' : 'opacity-90'
           }`}
           style={{ backgroundImage: `url(${siteConfig.heroPosterUrl})` }}
         />
 
-        {/* Cinematic Multi-layered Contrast Scrims */}
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-slate-950/70" />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/50 to-transparent" />
+        {/* Cinematic Multi-layered Contrast Scrims - Adjusted for increased video visibility */}
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/25 to-slate-950/50" />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/80 via-slate-950/35 to-transparent" />
 
         {/* Precision CAD / CNC Architectural Coordinate Grid Overlay */}
         <div
@@ -337,7 +337,7 @@ export const HeroSection: React.FC = () => {
             </div>
             <div className="flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-[#B8A04E] shrink-0" />
-              <span>Drawing & Sample-Based Job Work</span>
+              <span>Drawing & Sample Based Manufacturing</span>
             </div>
             <div className="flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-[#B8A04E] shrink-0" />

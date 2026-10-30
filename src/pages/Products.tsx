@@ -25,7 +25,7 @@ export const Products: React.FC = () => {
             {/* Eyebrow */}
             <div className="flex items-center gap-2 text-[11px] sm:text-xs font-bold tracking-widest text-[#B8A04E] uppercase mb-3 animate-fade-in-down">
               <span className="w-6 h-[2px] bg-[#7D6C32]" />
-              <span>Job Work & Component Catalog</span>
+              <span>Component & Manufacturing Catalog</span>
             </div>
 
             <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white mb-4 leading-tight animate-fade-in-up delay-150">
@@ -182,7 +182,7 @@ export const Products: React.FC = () => {
           })}
         </div>
 
-        {/* Drawing & Sample-Based Job Work Notice Card */}
+        {/* Drawing & Sample-Based Manufacturing Notice Card */}
         <RevealOnScroll direction="up" delay={200}>
           <div className="mt-14 sm:mt-16 p-6 sm:p-8 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col md:flex-row md:items-center justify-between gap-6">
             <div className="space-y-1.5 max-w-2xl">

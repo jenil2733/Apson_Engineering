@@ -54,7 +54,7 @@ export const ProductDetail: React.FC = () => {
   };
 
   const whatsappMessage = encodeURIComponent(
-    `Hello Apson Engineering,\n\nI am interested in getting a job-work quote for "${product.name}".\n\nProduct: ${product.name}\nCategory: ${product.category}\n\nPlease let me know where to share our engineering drawing and batch quantity for quotation.`
+    `Hello Apson Engineering,\n\nI am interested in getting a manufacturing quote for "${product.name}".\n\nProduct: ${product.name}\nCategory: ${product.category}\n\nPlease let me know where to share our engineering drawing and batch quantity for quotation.`
   );
   const whatsappUrl = `https://api.whatsapp.com/send?phone=918128830118&text=${whatsappMessage}`;
 
@@ -198,7 +198,7 @@ export const ProductDetail: React.FC = () => {
                   <span>Need This Component Machined?</span>
                 </div>
                 <p className="text-xs text-slate-600 leading-relaxed">
-                  We undertake custom job work for {product.name} and related precision industrial components. Share your drawing, batch quantity, and tolerance requirements for a prompt quotation.
+                  We undertake Drawing & sample based Manufacturing for {product.name} and related precision industrial components. Share your drawing, batch quantity, and tolerance requirements for a prompt quotation.
                 </p>
 
                 <div className="pt-1">

@@ -55,7 +55,7 @@ export const Home: React.FC = () => {
                     Years Machining Experience
                   </div>
                   <div className="mt-1 text-[11px] sm:text-xs text-slate-500 leading-relaxed">
-                    Precision job work & craftsmanship
+                    Precision manufacturing & craftsmanship
                   </div>
                 </div>
                 {/* Subtle bottom accent line on hover */}
@@ -159,7 +159,7 @@ export const Home: React.FC = () => {
                 <span className="block text-slate-500 font-bold mt-1">Ready for Production.</span>
               </h2>
               <p className="mt-4 sm:mt-5 text-sm sm:text-base lg:text-lg text-slate-600 leading-relaxed">
-                From CNC turning to multi-axis VMC machining, Apson Engineering undertakes customer-specific machining jobs with a focus on dimensional accuracy, consistent execution, and dependable service.
+                From CNC turning to multi-axis VMC machining, Apson Engineering undertakes customer-specific precision manufacturing with a focus on dimensional accuracy, consistent execution, and dependable service.
               </p>
             </div>
           </RevealOnScroll>
@@ -266,7 +266,7 @@ export const Home: React.FC = () => {
               </div>
             </RevealOnScroll>
 
-            {/* Capability 4: Custom Job Work */}
+            {/* Capability 4: Drawing & Sample Based Manufacturing */}
             <RevealOnScroll delay={300} direction="up">
               <div className="group relative p-6 sm:p-7 rounded-2xl bg-white border border-slate-200 hover:border-[#7D6C32]/60 hover:shadow-xl hover:shadow-slate-200/60 transition-all duration-300 flex flex-col justify-between hover:-translate-y-1.5 h-full">
                 <div className="flex items-center justify-between mb-5">
@@ -280,10 +280,10 @@ export const Home: React.FC = () => {
 
                 <div>
                   <div className="text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">
-                    Drawing-To-Part
+                    Drawing & Sample Based
                   </div>
                   <h3 className="text-xl font-extrabold text-slate-900 mb-2.5 group-hover:text-[#7D6C32] transition-colors">
-                    Custom Job Work
+                    Drawing & Sample Based Manufacturing
                   </h3>
                   <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                     Tailored batch manufacturing strictly according to customer blueprints, CAD files, or physical samples across steels, iron castings, and aluminium alloys.

@@ -45,7 +45,7 @@ export const machinesData: Machine[] = [
     shortDescription:
       'Engineered for precision prismatic components, featuring 800 mm X-travel and a 200 mm 4th-axis rotary table for complex angular operations.',
     fullDescription:
-      'The ACE Micromatic 850V is a cornerstone of our milling line, offering rigid structure and dependable repeatability for both batch manufacturing and precision job work. Outfitted with a dedicated 200 mm diameter rotary table, it supports 4-axis synchronized positioning for multi-sided components without refixturing.',
+      'The ACE Micromatic 850V is a cornerstone of our milling line, offering rigid structure and dependable repeatability for both batch manufacturing and precision custom manufacturing. Outfitted with a dedicated 200 mm diameter rotary table, it supports 4-axis synchronized positioning for multi-sided components without refixturing.',
     image: '/assets/mach_vmc_850.jpg',
     imageCaption: 'Vertical Machining Center (VMC) with multi-tool magazine',
     badge: '4-Axis Configured',
@@ -167,7 +167,7 @@ export const machinesData: Machine[] = [
     shortDescription:
       'Modern vertical machining system from Jyoti CNC Automation running Siemens control with high-precision linear guideways.',
     fullDescription:
-      'Manufactured by Jyoti CNC Automation, this vertical machining center operates alongside our primary VMC line. Configured with a Siemens CNC controller and automatic tool changer, it handles customer job work requiring high-accuracy milling, slotting, and thread milling.',
+      'Manufactured by Jyoti CNC Automation, this vertical machining center operates alongside our primary VMC line. Configured with a Siemens CNC controller and automatic tool changer, it handles customer manufacturing requiring high-accuracy milling, slotting, and thread milling.',
     image: '/assets/mach_jyoti_vmc.jpg',
     imageCaption: 'High-precision Vertical Machining Center for contouring and milling',
     badge: 'VMC Milling',

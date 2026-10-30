@@ -23,7 +23,7 @@ export const ContactCTA: React.FC = () => {
         <RevealOnScroll direction="up" className="max-w-3xl mx-auto">
           {/* Eyebrow Label */}
           <div className="inline-flex items-center gap-2 mb-3 text-[11px] sm:text-xs font-bold tracking-widest text-[#7D6C32] uppercase">
-            <span>Direct Manufacturing Job Work</span>
+            <span>Drawing & Sample Based Manufacturing</span>
           </div>
 
           {/* Headline */}

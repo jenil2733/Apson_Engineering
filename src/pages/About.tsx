@@ -48,7 +48,7 @@ export const About: React.FC = () => {
             </h1>
 
             <p className="text-sm sm:text-base lg:text-lg text-slate-300 leading-relaxed max-w-2xl">
-              Apson Engineering is a dedicated CNC and VMC precision machining job-work enterprise
+              Apson Engineering is a dedicated CNC and VMC precision machining and manufacturing enterprise
               located in the industrial manufacturing hub of Shapar, Rajkot, Gujarat.
             </p>
           </div>
@@ -88,7 +88,7 @@ export const About: React.FC = () => {
                   </div>
 
                   <p className="text-base text-slate-700 leading-relaxed font-medium mb-6">
-                    To be the benchmark precision job-work partner for automotive, engineering, and heavy equipment
+                    To be the benchmark precision manufacturing partner for automotive, engineering, and heavy equipment
                     manufacturers across India—recognized for micron-level tolerance fidelity, zero-defect fixturing,
                     and dependable delivery commitments.
                   </p>
@@ -193,7 +193,7 @@ export const About: React.FC = () => {
               </h2>
 
               <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-                At Apson Engineering, our core focus is precision job work manufactured strictly to
+                At Apson Engineering, our core focus is Drawing & sample based Manufacturing, strictly to
                 customer drawings, 3D CAD models, or physical samples. Whether you supply forgings,
                 castings, or raw bar stock, our facility is equipped to machine components to your
                 specified tolerances and surface requirements.
